@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot CBMPE</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="welcome-screen" class="screen active">
+    <h1>Bem-vindo ao CBMPE!</h1>
+    <p>Escolha uma opção para continuar.</p>
+    <div class="welcome-actions">
+      <button id="access-chatbot-btn">Acessar Chatbot</button>
+      <button id="regulations-btn">Ver Regulamentações</button>
+      <button id="contact-btn">Contato</button>
+    </div>
+  </div>
+  
+<div id="chat-app" class="screen hidden">
+  <div class="chat-container">
+    <button id="back-to-welcome-btn" class="back-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      Voltar
+    </button>
+    
+    <div class="header-chat">
+      <img id="chatbot-logo" src="logo-bombeiros.png" alt="Logo CBMPE" />
+      <h1>Chatbot CBMPE</h1> 
+    </div>
+    <div id="chat-output" class="chat-box"></div>
+    <div class="input-area">
+      <input id="chat-input" placeholder="Digite sua resposta...">
+      <button id="send-btn">Enviar</button>
+    </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

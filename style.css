@@ -1,0 +1,226 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #7a0000, #ff3d2f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  width: 660px; /* aumentei a largura para ficar maior */
+  height: 95vh; /* define uma altura maior */
+  background: 
+    rgba(255, 255, 255, 1.0); /* fundo branco translúcido para melhor leitura */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  /* Imagem de fundo do brasão */
+  background-image: url('/mnt/data/342f377e-28c5-4467-8896-5baa18b7afaa.png');
+  background-repeat: no-repeat;
+  background-position: center center; /* centraliza a imagem */
+  background-size: 50% auto; /* aumenta o tamanho da imagem, mantendo a proporção */
+  background-origin: content-box; /* para respeitar padding */
+  background-attachment: local; /* fixa o fundo na área do chat */
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px; /*era 10px e 25px e 180 no lugar de 260 e 0.95*/
+  padding: 25px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.30)),
+    url("brasao.png") no-repeat center 140px;
+  
+  background-size: 200px;         /* Ajuste do tamanho do brasão */
+                  /* Leve transparência no fundo */
+}
+
+.input-area {
+  display: flex;
+  gap: 8px;
+}
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #b22222;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover {
+  background: #8b0000;
+}
+
+.bot, .user {
+  padding: 12px 14px;          /* Mais espaço dentro da mensagem */
+  border-radius: 10px;
+  margin-bottom: 14px;         /* Aumenta o espaço ENTRE as mensagens */
+  line-height: 1.5;            /* Torna o texto mais confortável */
+  max-width: 90%;
+  word-wrap: break-word;
+  font-size: 15px;
+}
+
+.bot {
+  background: #f2f2f2;
+  border-left: 4px solid #b22222;  /* Efeito parecido com chat profissional */
+}
+
+.user {
+  background: #b22222;
+  color: white;
+  margin-left: auto;
+  text-align: right;
+  border-right: 4px solid #8b0000;
+}
+
+/* Estilos para o sistema de telas */
+.screen {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.screen.active {
+  display: flex; /* A tela ativa é exibida como flex */
+}
+
+.screen.hidden {
+  display: none !important; /* Certifica que a tela oculta não será mostrada */
+}
+
+/* Estilos da Tela de Boas-Vindas */
+#welcome-screen {
+background: 
+    url("fundo-cbmpe.png") no-repeat center center; 
+    
+  background-size: cover; /* Garante que a imagem preencha a tela */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#welcome-screen h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+#welcome-screen p {
+  font-size: 1.2em;
+  margin-bottom: 2em;
+}
+
+.welcome-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+}
+
+.welcome-actions button {
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+#access-chatbot-btn {
+  background: #ff6347; /* Tom de vermelho mais claro para destaque */
+  color: white;
+  border: none;
+}
+
+#access-chatbot-btn:hover {
+  background: #ff472e;
+  transform: translateY(-2px);
+}
+
+#regulations-btn, #contact-btn {
+  background: #f2f2f2;
+  color: #7a0000;
+  border: 1px solid #7a0000;
+}
+
+#regulations-btn:hover, #contact-btn:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* Ajusta o contêiner do chat para ocupar a tela inteira, se a .screen estiver ativa */
+#chat-app.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Adicionado para posicionar o botão de voltar corretamente */
+}
+
+/* NOVO ESTILO PARA O BOTÃO DE VOLTAR */
+.back-btn {
+  position: absolute; 
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  z-index: 10; 
+}
+
+.back-btn svg {
+    stroke: white; /* Cor do ícone */
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+
+.header-chat {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  gap: 15px; 
+  margin-bottom: 20px; 
+}
+
+
+#chatbot-logo {
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%; 
+  object-fit: cover;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.chat-container h1 {
+  margin: 0; 
+  font-size: 1.8em;
+  color: #7a0000;
+}
